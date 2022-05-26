@@ -1,0 +1,91 @@
+# R-Statistics-Project
+print("Jesse Castro") 
+print("Project 1")
+print("Probability and Introductory Statistics")
+#importing libraries
+library(tidyverse) 
+library(gridExtra)
+library(grid)
+library(DT)         
+library(knitr) 
+#Making the car speed vector
+car_speed = c(85.11, 70.37, 46.33, 56.37, 52.43, 57.18, 65.11, 55.65, 50.99, 57.38, 54.33, 51.34, 57.37, 73.81, 79.71, 63.85, 54.55, 45.66, 71.48, 67.26)
+#Finding out what the mean, median, and sd are
+mean(car_speed) 
+median(car_speed)
+sd(car_speed)
+#Assigning the mean,median, and SD
+Standard_d = sd(car_speed)
+mean_speed = mean(car_speed) 
+median_speed = median(car_speed)
+#Printing the mean, median and sd while also rounding them
+print(paste("The average car speed is", round(mean_speed, 2), "miles per hour"))
+print(paste("The median car speed is", round(median_speed, 2), "miles per hour"))
+print(paste("The standard deviation is", round(Standard_d, 2), "miles per hour"))
+#Assigning the 90th quantile variable
+ninquant = quantile(car_speed, 0.90)
+#Printing the 90th quantile variable into a sentence
+print(paste("The 90th quantile is ", round(quantile(car_speed, 0.90), 2), "of the car_speed vector"))
+#Assigning the 25th quantile variable
+twenfivquant = quantile(car_speed, 0.25)
+print(paste("The 25th quantile is ", round(quantile(car_speed, 0.25), 2), "of the car_speed vector"))
+#Making a vector with the mean, median, sd, 25th quantiel and 90th quantile values
+carinfo = c(mean_speed, ninquant, Standard_d, twenfivquant, median_speed)
+#Creating the matrix that has the carinfo values and also the car_speed values in it
+#I feel really comfortable making the carmatrix matrix like this
+carmatrix <- cbind(carinfo, car_speed)
+#Removing the last value from the car_speed vector while also making a new vector 
+remove <- c(67.26)
+car_speed2 = setdiff(car_speed, remove)
+#Getting the mean from the car_speed2 vector 
+mean_speed2 = mean(car_speed2)
+#Adding a value to the car_speed2 vector while also making a new vector called car_speed3
+add <- c(55.35)
+car_speed3 = append(car_speed2,add)
+#Getting the mean from the car_speed3 vector 
+mean_speed3 = mean(car_speed3)
+#Printing the mean of the car_speed3 vector while also rounding
+print(paste("The mean car speed is", round(mean_speed3, 2), "miles per hour for the car_speed3 updated data"))
+
+#Creating a sales and days vector(days vector is a character data structure)
+sales = c(80, 250, 440, 620, 730, 710, 510)
+days = c('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
+#Associating the char values from days with the sales numerical values
+
+names(sales)<- days
+#making a matrix with the days and sales vectors
+daysandsales = cbind(days, sales)
+
+#filtering out observations/sales greater than $500 and then creating a new matrix called good_sales
+good_sales <- sales[sales>500]
+
+print(good_sales)
+#Adding up the total number of sales
+sum(sales)
+#Adding up all of the sales greater than 500
+sum(good_sales)
+
+
+#Assigning a formula variable and then printing the result in a sentence
+formula <-(20+35^2)/sqrt(40)
+print(paste("The Value of the formula is ", round(formula, 2)))
+#Assigning a formula1 variable and also finding out the result
+formula1 <-(150-120)/(22/58)
+#Printing out the result of the formula variable
+print(paste("The Value of formula1 is ", round(formula1, 2)))
+#Creating the Boston and Cambridge vector and then after creating the Boston and Cambridge Matrix
+Boston <- c(5000,6300,8250)      
+Cambridge<- c(4350,4560,6100)
+Stores <- c("Store 1", "Store 2", "Store 3")
+names(Boston)<- Stores
+#Associating the name of the Cambridge and Boston values to the Store Characters
+names(Cambridge)<- Stores
+#Making the matrix in the format which was displayed on the project pdf (Task 19) picture
+BCSales <- cbind(Boston,Cambridge)      
+
+#Conclusion
+#This entire project was really useful to me because I was able to learn R in a short time frame. Making the vectors and then making a matrix out of those vectors opened 
+#mind to what one can do with R. Obtaining the mean, median, SD, 90th quantile and 25th quantile was actually really useful in terms of analysis because of how much information 
+#I was able to obtain after the calculations. Printing out the information was also really useful since I was able to see the results and put it in a sentence inside the console. 
+#Additionally, I was able to find out how to calculate complex equations using R which will be really useful in the future when performing other analysis.
+#Overall my experience with this project was really eye opening and I hope there will be more work to be done programming in R.
